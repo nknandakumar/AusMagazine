@@ -1,65 +1,255 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import { Ticker } from "@/components/ui/Ticker";
+import { PackageCard } from "@/components/ui/PackageCard";
+import { Reveal } from "@/components/ui/Reveal";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex flex-col w-full">
+      {/* SECTION 1 — HERO */}
+      <section className="relative pt-40 md:pt-56 pb-20 px-6 flex flex-col items-center justify-center text-center max-w-5xl mx-auto min-h-[85vh]">
+        <Reveal>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
+            Australia's <span className="font-serif-italic font-regular">Viral</span> Promotion Platform
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed">
+            Helping Aussie brands, creators and local businesses get <span className="text-white">seen</span> by thousands of engaged followers every single day.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            <Link href="/get-featured">
+              <Button>Get Featured</Button>
+            </Link>
+            <Link href="/advertise">
+              <Button variant="outline">Advertise With Us</Button>
+            </Link>
+          </div>
+          <div className="flex items-center justify-center gap-3 text-sm text-white/50 uppercase tracking-widest font-bold">
+            <div className="w-2 h-2 rounded-full bg-gold"></div>
+            Trusted by 700K+ engaged followers across Australia
+          </div>
+        </Reveal>
+      </section>
+
+      {/* SECTION 2 — TICKER */}
+      <Ticker />
+
+      {/* SECTION 3 — SOCIAL PROOF */}
+      <section className="py-32 px-6 max-w-7xl mx-auto">
+        <Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 items-end">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              Join hundreds of Australian brands already <span className="font-serif-italic font-regular">growing</span> with AUS Magazine
+            </h2>
+            <p className="text-white/70 text-lg leading-relaxed md:max-w-md">
+              Our numbers speak for themselves. A highly engaged, 100 percent Australian community that actively discovers and supports new brands.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { stat: "50K+", label: "Instagram Followers" },
+              { stat: "8.4%", label: "Engagement Rate" },
+              { stat: "700K+", label: "Total Audience Reach" },
+              { stat: "500+", label: "Brands Featured" },
+            ].map((metric, i) => (
+              <div key={i} className="bg-[#111] border border-white/5 p-8 flex flex-col justify-center items-center text-center">
+                <span className="text-5xl font-bold font-satoshi text-gold mb-2">{metric.stat}</span>
+                <span className="text-sm uppercase tracking-widest text-white/50 font-bold">{metric.label}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* SECTION 4 — WHAT WE DO */}
+      <section className="py-24 px-6 bg-[#0a0a0a] border-y border-white/5">
+        <Reveal>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              { num: "01", title: "Promotion", body: "Get your brand in front of thousands of targeted Australian users who are actively engaged and ready to discover new businesses." },
+              { num: "02", title: "Exposure", body: "Reach real audiences across cities like Melbourne, Sydney, and Perth. No bots, no inflated numbers — genuine local people." },
+              { num: "03", title: "Results", body: "Drive real traffic, followers, and paying customers to your business. Partners see measurable growth within 24 hours of going live." }
+            ].map((col, i) => (
+              <div key={i} className="flex flex-col items-start">
+                <span className="text-7xl font-bold text-white/5 mb-6 leading-none">{col.num}</span>
+                <h3 className="text-3xl font-serif-italic mb-4">{col.title}</h3>
+                <p className="text-white/60 leading-relaxed">{col.body}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* SECTION 5 — FEATURED CONTENT (VIDEOS MARQUEE) */}
+      <section className="py-32 overflow-hidden relative">
+        <Reveal>
+          <div className="text-center mb-16 px-6">
+            <span className="text-gold text-xs font-bold uppercase tracking-widest mb-4 inline-block">Viral Content</span>
+            <h2 className="text-4xl md:text-5xl font-bold">The Engagement Engine</h2>
+          </div>
+          
+          <div className="relative w-full flex overflow-hidden">
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none"></div>
+            
+            <motion.div 
+              className="flex space-x-6 w-max items-center px-6"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 60 }}
+            >
+              {[
+                "https://ik.imagekit.io/6b0su29zd/Aus.Magazine/hotel.mp4?updatedAt=1774343936604",
+                "https://ik.imagekit.io/6b0su29zd/Aus.Magazine/bodycare.mp4?updatedAt=1774343936086",
+                "https://ik.imagekit.io/6b0su29zd/Aus.Magazine/red.mp4?updatedAt=1774343934540",
+                "https://ik.imagekit.io/6b0su29zd/Aus.Magazine/promotion.mp4?updatedAt=1774343936073",
+                "https://ik.imagekit.io/6b0su29zd/Aus.Magazine/explainer.mp4?updatedAt=1774343935978",
+                "https://ik.imagekit.io/6b0su29zd/Aus.Magazine/hotel.mp4?updatedAt=1774343936604",
+                "https://ik.imagekit.io/6b0su29zd/Aus.Magazine/bodycare.mp4?updatedAt=1774343936086",
+                "https://ik.imagekit.io/6b0su29zd/Aus.Magazine/red.mp4?updatedAt=1774343934540",
+                "https://ik.imagekit.io/6b0su29zd/Aus.Magazine/promotion.mp4?updatedAt=1774343936073",
+                "https://ik.imagekit.io/6b0su29zd/Aus.Magazine/explainer.mp4?updatedAt=1774343935978"
+              ].map((src, i) => (
+                <div key={i} className="relative w-[280px] md:w-[320px] aspect-[9/16] shrink-0 bg-[#111] overflow-hidden rounded-md border border-white/10">
+                  <video src={src} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-80" />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* SECTION 6 — PACKAGES */}
+      <section className="py-32 px-6 bg-[#050505]">
+        <Reveal>
+          <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+            <span className="text-gold text-xs font-bold uppercase tracking-widest mb-4">Get Featured</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Get Your Brand <span className="font-serif-italic font-regular">Seen</span> by Thousands</h2>
+            <p className="text-white/70 max-w-2xl mb-16 text-lg">
+              Promote your business, product or service to a highly engaged Australian audience. Choose your level of exposure.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full text-left">
+              <PackageCard
+                name="Story Feature"
+                price="From $20"
+                description="A 24-hour Instagram story feature placing your brand directly in front of our engaged audience."
+                features={["24-hour story placement", "Swipe-up link to your page", "Posted within 24 hours", "Reach 50K+ followers"]}
+                buttonText="Submit Request"
+                buttonVariant="outline"
+                href="/get-featured"
+              />
+              <PackageCard
+                name="Feed Post"
+                price="From $50"
+                description="A permanent feed post that stays on our profile — delivering long-term exposure to every new follower we gain."
+                features={["Permanent feed post", "Caption with your handle", "Shared to stories too", "Priority turnaround", "50K+ follower reach"]}
+                buttonText="Submit Request"
+                buttonVariant="default"
+                href="/get-featured"
+                isPopular
+              />
+              <PackageCard
+                name="Featured Campaign"
+                price="From $150"
+                description="A full 7-day campaign — multiple posts, dedicated stories, and custom caption writing for maximum sustained impact."
+                features={["3 feed posts plus daily stories", "7-day promotion window", "Custom caption writing", "Priority placement", "Performance summary"]}
+                buttonText="Submit Request"
+                buttonVariant="outline"
+                href="/get-featured"
+              />
+            </div>
+            
+            <div className="mt-12 text-white/50 text-sm">
+              All packages include a personal review. Questions? <Link href="/contact" className="text-gold hover:underline">Contact us</Link>.
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* SECTION 7 — WHY CHOOSE US */}
+      <section className="py-32 px-6 max-w-7xl mx-auto">
+        <Reveal>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-20">
+            <div className="flex flex-col">
+              <span className="text-gold text-xs font-bold uppercase tracking-widest mb-4">Differentiation</span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Why Brands Choose AUS Magazine</h2>
+              <p className="text-white/70 text-lg leading-relaxed mb-10">
+                We are not a generic promotion page. We are a focused, engaged, Australia-first media platform built entirely around connecting local brands with local audiences.
+              </p>
+              <Link href="/get-featured" className="text-white hover:text-gold transition-colors font-bold uppercase tracking-widest text-sm flex items-center gap-2 w-max group">
+                Start Growing Today
+                <span className="w-6 h-px bg-white group-hover:bg-gold transition-colors"></span>
+              </Link>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16">
+              {[
+                { title: "Australia-Focused Audience", desc: "Every follower is Australian. Your promotion reaches real local customers who can walk through your door." },
+                { title: "High Engagement Content", desc: "Our 8.4% engagement rate is well above the industry average of 1 to 3 percent." },
+                { title: "Fast 24-Hour Turnaround", desc: "Submit today, go live tomorrow. We move fast because your time is valuable." },
+                { title: "Targeted Niche Exposure", desc: "Our audience is segmented by interest and city so your content reaches exactly the right people." }
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col">
+                  <h4 className="text-lg font-bold mb-3">{item.title}</h4>
+                  <p className="text-white/60 leading-relaxed text-sm">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* SECTION 8 — TESTIMONIALS */}
+      <section className="py-32 px-6 bg-[#050505] border-y border-white/5">
+        <Reveal>
+          <div className="max-w-7xl mx-auto flex flex-col items-center">
+            <span className="text-gold text-xs font-bold uppercase tracking-widest mb-4">Results</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center">Real <span className="font-serif-italic font-regular">Growth</span> for Real Brands</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+              {[
+                { quote: "We gained 300 plus followers in the first 24 hours. Our DMs were flooded with enquiries. Best $50 we have ever spent on marketing.", name: "Sarah M.", biz: "Nail Studio, Melbourne" },
+                { quote: "Our bookings doubled the week after the feature. We have been using AUS Magazine every month since. The ROI is incredible.", name: "Jake T.", biz: "Tattoo Artist, Sydney" },
+                { quote: "Finally a promotion platform that actually works for Australian businesses. Our cafe reached thousands of new people overnight.", name: "Priya R.", biz: "Cafe Owner, Brisbane" }
+              ].map((test, i) => (
+                <div key={i} className="p-8 bg-[#111] border border-white/5 flex flex-col">
+                  <div className="flex gap-1 mb-6">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <span key={s} className="text-gold text-lg">★</span>
+                    ))}
+                  </div>
+                  <p className="text-white/80 leading-relaxed mb-8 flex-grow">"{test.quote}"</p>
+                  <div className="flex flex-col">
+                    <span className="font-bold text-white">{test.name}</span>
+                    <span className="text-white/50 text-sm">{test.biz}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* SECTION 9 — FINAL CTA */}
+      <section className="py-40 px-6 text-center">
+        <Reveal>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">Ready to <span className="font-serif-italic font-regular">Grow</span> Your Brand?</h2>
+          <p className="text-white/70 text-lg max-w-xl mx-auto mb-12">
+            Get featured today and reach thousands of potential customers across Australia.
+          </p>
+          <div className="flex justify-center gap-4 flex-col sm:flex-row">
+            <Link href="/get-featured">
+              <Button>Get Featured</Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline">Contact Us</Button>
+            </Link>
+          </div>
+        </Reveal>
+      </section>
     </div>
   );
 }
