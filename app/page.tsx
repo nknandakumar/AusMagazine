@@ -94,18 +94,40 @@ export default function Home() {
       </section>
 
       {/* SECTION 4 — WHAT WE DO */}
-      <section className="py-24 px-6 bg-[#0a0a0a] border-y border-white/5">
+      <section className="py-32 px-6 bg-[#0a0a0a] border-y border-white/5">
         <Reveal>
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="max-w-7xl mx-auto mb-20 flex flex-col items-center">
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-gold/30 bg-gold/5 text-gold text-xs font-bold tracking-widest uppercase mb-8">
+              What We Do
+            </div>
+            <h2 className="text-4xl md:text-5xl text-center font-bold leading-tight max-w-3xl mx-auto">
+              We Turn Attention Into <span className="font-serif-italic font-regular text-gold">Growth</span>
+            </h2>
+          </div>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-12">
             {[
               { num: "01", title: "Promotion", body: "Get your brand in front of thousands of targeted Australian users who are actively engaged and ready to discover new businesses." },
               { num: "02", title: "Exposure", body: "Reach real audiences across cities like Melbourne, Sydney, and Perth. No bots, no inflated numbers — genuine local people." },
               { num: "03", title: "Results", body: "Drive real traffic, followers, and paying customers to your business. Partners see measurable growth within 24 hours of going live." }
             ].map((col, i) => (
-              <div key={i} className="flex flex-col items-start">
-                <span className="text-7xl font-bold text-white/5 mb-6 leading-none">{col.num}</span>
-                <h3 className="text-3xl font-serif-italic mb-4">{col.title}</h3>
-                <p className="text-white/60 leading-relaxed">{col.body}</p>
+              <div 
+                key={i} 
+                className="flex flex-col items-start p-8 border border-white/5 bg-[#0f0f0f] min-h-[320px] justify-between md:p-0 md:border-0 md:bg-transparent md:min-h-0 md:justify-start"
+              >
+                {/* Mobile Top Text */}
+                <span className="flex items-center md:hidden font-serif-italic text-2xl font-bold text-white/50 uppercase tracking-widest">
+                  {col.num}<span className="ml-2 mt-2.5 h-1.5 w-1.5 bg-[#C8A96E] "></span>
+                </span>
+                
+                {/* Desktop Top Text (Watermark) */}
+                <span className="hidden md:block text-7xl font-bold text-white/5 mb-6 leading-none">
+                  {col.num}
+                </span>
+
+                <div className="flex flex-col mt-auto md:mt-0">
+                  <h3 className="text-2xl font-bold text-white mb-2 md:text-3xl font-serif-italic md:mb-4 tracking-tight md:tracking-normal">{col.title}</h3>
+                  <p className="text-white/60 leading-relaxed text-[15px] md:text-base">{col.body}</p>
+                </div>
               </div>
             ))}
           </div>
