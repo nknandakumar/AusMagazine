@@ -7,6 +7,7 @@ import { AnimatedButton } from "@/components/ui/AnimatedButton";
 import { Ticker } from "@/components/ui/Ticker";
 import { PackageCard } from "@/components/ui/PackageCard";
 import { Reveal } from "@/components/ui/Reveal";
+import { AnimatedStatCard } from "@/components/ui/AnimatedStatCard";
 
 export default function Home() {
   return (
@@ -55,26 +56,39 @@ export default function Home() {
       {/* SECTION 3 — SOCIAL PROOF */}
       <section className="py-32 px-6 max-w-7xl mx-auto">
         <Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 items-end">
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+          <div className="mb-16 flex flex-col items-center">
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-gold/30 bg-gold/5 text-gold text-xs font-bold tracking-widest uppercase mb-8">
+              Results
+            </div>
+            <h2 className="text-4xl md:text-5xl text-center font-bold leading-tight max-w-3xl mx-auto">
               Join hundreds of Australian brands already <span className="font-serif-italic font-regular">growing</span> with AUS Magazine
             </h2>
-            <p className="text-white/70 text-lg leading-relaxed md:max-w-md">
-              Our numbers speak for themselves. A highly engaged, 100 percent Australian community that actively discovers and supports new brands.
-            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { stat: "50K+", label: "Instagram Followers" },
-              { stat: "8.4%", label: "Engagement Rate" },
-              { stat: "700K+", label: "Total Audience Reach" },
-              { stat: "500+", label: "Brands Featured" },
-            ].map((metric, i) => (
-              <div key={i} className="bg-[#111] border border-white/5 p-8 flex flex-col justify-center items-center text-center">
-                <span className="text-5xl font-bold font-satoshi text-gold mb-2">{metric.stat}</span>
-                <span className="text-sm uppercase tracking-widest text-white/50 font-bold">{metric.label}</span>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-10">
+            <AnimatedStatCard 
+              endValue={794} 
+              suffix="K+" 
+              label="Total Followers" 
+              subLabel="Highly engaged Australian community"
+              theme="light"
+              className="order-1 md:order-2"
+            />
+            <AnimatedStatCard 
+              endValue={100} 
+              suffix="M+" 
+              label="Total Reach" 
+              subLabel="Annual Impressions across all platforms"
+              theme="dark"
+              className="order-2 md:order-1"
+            />
+            <AnimatedStatCard 
+              endValue={1000} 
+              suffix="+" 
+              label="Brands Featured" 
+              subLabel="Trusted by top Australian businesses"
+              theme="dark"
+              className="order-3 md:order-3"
+            />
           </div>
         </Reveal>
       </section>
