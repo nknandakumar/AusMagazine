@@ -2,19 +2,30 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background:  #0A0A0A;
-  --color-foreground: #F2F0EB;
-  --color-gold: #C8A96E;
-  
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-primary: #000000;
+  --color-secondary: #00457C;
+  --color-accent: #00457C;
+  --color-primary-tint: #fafafa;
+  --color-gold-tint: #FEF3D9;
+  --color-gold: #00457C; /* Keeping a mapping for gold classes used across site */
+
   --font-satoshi: 'Satoshi', sans-serif;
   --font-serif-italic: var(--font-dm-serif-text), serif;
 
   --animate-marquee: marquee 40s linear infinite;
-  
-  @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
-  }
+  --animate-marquee-reverse: marquee-reverse 40s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
 }
 
 @layer base {

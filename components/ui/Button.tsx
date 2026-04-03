@@ -15,9 +15,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gold text-black hover:bg-white hover:text-black",
+          "bg-accent text-white hover:bg-white hover:text-white",
         outline:
-          "border border-white bg-transparent text-white hover:bg-white hover:text-black",
+          "border border-white bg-transparent text-white hover:bg-white hover:text-white",
       },
     },
     defaultVariants: {
