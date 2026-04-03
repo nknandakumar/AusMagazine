@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center">
-              <img src="/Aussie_Life.jpg" alt="Aussie Life" className="h-10 w-10 rounded-full object-contain" />
+              <img src="/LOGO.png" alt="Aussie Life" className="h-10 w-10 rounded-full object-contain" />
             </Link>
             <p className="text-white/80 text-sm mt-4 leading-relaxed">
               Australia's Viral Promotion Platform. Helping Aussie brands, creators, and small businesses get seen by 173K+ real, engaged followers every single day.

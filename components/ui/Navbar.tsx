@@ -41,7 +41,7 @@ export function Navbar() {
         )}
       >
         <Link href="/" className="flex items-center shrink-0">
-          <img src="/logo.png" alt="Aussie Life" className="h-14 w-auto object-contain border border-primary rounded-full" />
+          <img src="/LOGO.png" alt="Aussie Life" className="h-14 w-auto object-contain border border-primary rounded-full" />
         </Link>
 
         {/* Desktop Links */}
